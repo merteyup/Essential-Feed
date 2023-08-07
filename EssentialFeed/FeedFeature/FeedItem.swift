@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct FeedItem {
+public struct FeedItem: Equatable {
     
-    let it: UUID
-    let description : String?
-    let location: String?
-    let imageURL: URL
+   public let it: UUID
+   public let description : String?
+   public let location: String?
+   public let imageURL: URL
     
 }
 
