@@ -48,11 +48,11 @@ class RemoteFeedLoaderTests: XCTestCase {
     
     func test_load_deliversErrorOnNon200HTTPResponse() {
         let (sut, client) = makeSUT()
-
+        
         let samples = [199, 201, 300, 400, 500]
         samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWith:  .failure(.invalidData), when: {
-              let json = makeItemsJSON([])
+                let json = makeItemsJSON([])
                 client.complete(withStatusCode: code, data: json, at: index)
             })
         }
@@ -84,13 +84,13 @@ class RemoteFeedLoaderTests: XCTestCase {
         
         let item1 = makeItem(id: UUID(),
                              imageURL: URL(string: "http://a-url.com")!)
-
+        
         
         let item2 = makeItem(id: UUID(),
                              description: "a description",
                              location: "a location",
                              imageURL: URL(string: "http://another-url.com")!)
-   
+        
         let items = [item1.model, item2.model]
         
         expect(sut, toCompleteWith: .success(items)) {
@@ -125,7 +125,7 @@ class RemoteFeedLoaderTests: XCTestCase {
     private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
         let json = ["items" : items]
         return try! JSONSerialization.data(withJSONObject: json)
-
+        
     }
     
     private func expect(_ sut: RemoteFeedLoader,

@@ -30,7 +30,7 @@ public final class RemoteFeedLoader {
         case success([FeedItem])
         case failure(Error)
     }
-     
+    
     public init(url: URL , client: HTTPClient) {
         self.url = url
         self.client = client
@@ -38,7 +38,7 @@ public final class RemoteFeedLoader {
     
     public func load(completion: @escaping (Result) -> Void) {
         client.get(from: url) { result in
-          
+            
             switch result {
             case let .success(data, response):
                 do {
@@ -49,18 +49,18 @@ public final class RemoteFeedLoader {
                 }
             case .failure:
                 completion(.failure(.connectivity))
-                }
             }
         }
     }
-    
+}
+
 
 private class FeedItemsMapper {
     
     private struct Root: Decodable {
         let items: [Item]
     }
-
+    
     private struct Item: Decodable {
         public let id: UUID
         public let description : String?
@@ -76,8 +76,10 @@ private class FeedItemsMapper {
         }
     }
     
+    static var OK_200 : Int {return 200}
+    
     static func map(_ data: Data, _ response: HTTPURLResponse) throws -> [FeedItem] {
-        guard response.statusCode == 200 else {
+        guard response.statusCode == OK_200 else {
             throw RemoteFeedLoader.Error.invalidData
         }
         
