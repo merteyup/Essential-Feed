@@ -10,6 +10,9 @@ import EssentialFeed
 
 final class EssentialFeedAPIEndToEndTests: XCTestCase {
     
+    
+    // MARK: - Tests
+    
     func test_endToEndTestServerGETFeedResult_matchesFixedTestAccountData () {
       
         switch getFeedResult() {
@@ -100,9 +103,5 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
     private func imageURL(at index: Int) -> URL {
         return URL(string: "https://url-\(index+1).com")!
     }
-    
-    
-    
-    
-    
+        
 }
