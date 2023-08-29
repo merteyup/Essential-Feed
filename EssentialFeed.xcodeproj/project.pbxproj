@@ -148,8 +148,8 @@
 		C4F44DBC2A7E5E7900D8ADA6 /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				C42F22802A9E2F5200DD8482 /* Feed Cache */,
 				C42D04EF2A86242A00682B5B /* Helpers */,
+				C42F22802A9E2F5200DD8482 /* Feed Cache */,
 				C4F44DBD2A7E5E7900D8ADA6 /* EssentialFeedTests.swift */,
 				C4F44DD62A825DE300D8ADA6 /* Feed API */,
 			);
