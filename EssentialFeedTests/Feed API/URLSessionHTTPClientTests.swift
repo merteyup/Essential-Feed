@@ -128,18 +128,10 @@ class URLSessionHTTPClientTests: XCTestCase {
         return receivedResult
     }
     
-    private func anyURL() -> URL {
-        return URL(string: "http://any-url.com")!
-    }
-    
     private func anyData() -> Data {
         return Data()
     }
-    
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any error", code: 0)
-    }
-   
+
     private func anyHTTPURLResponse() -> HTTPURLResponse {
         return HTTPURLResponse(url: anyURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!
     }
@@ -178,7 +170,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         }
         
         override class func canInit(with request: URLRequest) -> Bool {
-            requestObserver?(request)
+
             return true
         }
         
@@ -187,6 +179,11 @@ class URLSessionHTTPClientTests: XCTestCase {
         }
         
         override func startLoading() {
+            
+            if let requestObserver = URLProtocolStub.requestObserver {
+                client?.urlProtocolDidFinishLoading(self)
+                return requestObserver(request)
+            }
 
             if let data = URLProtocolStub.stub?.data {
                 client?.urlProtocol(self, didLoad: data)
