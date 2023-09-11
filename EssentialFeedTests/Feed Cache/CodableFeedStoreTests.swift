@@ -11,7 +11,7 @@ import EssentialFeed
 typealias FailableFeedStore = FailableRetrieveFeedStoreSpecs & FailableInsertFeedStoreSpecs & FailableDeleteFeedStoreSpecs
 
 class CodableFeedStoreTests : XCTestCase, FailableFeedStore {
-  
+      
     override func setUp() {
         super.setUp()
         setupEmptyStoreState()
@@ -50,6 +50,10 @@ class CodableFeedStoreTests : XCTestCase, FailableFeedStore {
         let sut = makeSUT()
         
         assertThatInsertDeliversNoErrorOnNonEmptyCache(on: sut)
+    }
+    
+    func test_insert_deliversNoErrorOnEmptyCache() {
+        
     }
     
     func test_delete_deliversNoErrorOnEmptyCache() {
