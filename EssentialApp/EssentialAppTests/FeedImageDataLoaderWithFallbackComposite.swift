@@ -125,19 +125,7 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         
         wait(for: [exp], timeout: 1.0)
     }
-    
-    private func anyNSError() -> NSError {
-        return NSError(domain: "any error", code: 0)
-    }
-    
-    func anyData() -> Data {
-        return Data("any data".utf8)
-    }
-    
-    private func anyURL() -> URL {
-        return URL(string: "http://a-url.com")!
-    }
-    
+
     private class LoaderSpy: FeedImageDataLoader {
         private var messages = [(url: URL, completion: (FeedImageDataLoader.Result) -> Void)]()
         private(set) var cancelledURLs = [URL]()
