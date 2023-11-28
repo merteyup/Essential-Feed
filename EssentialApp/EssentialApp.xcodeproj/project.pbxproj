@@ -15,6 +15,7 @@
 		C4FD48F92B15AFA100740AB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FD48F72B15AFA100740AB0 /* LaunchScreen.storyboard */; };
 		C4FD491D2B15BEDA00740AB0 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD491C2B15BEDA00740AB0 /* FeedLoaderWithFallbackCompositeTests.swift */; };
 		C4FD491F2B15C48600740AB0 /* FeedLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD491E2B15C48600740AB0 /* FeedLoaderWithFallbackComposite.swift */; };
+		C4FD49212B15C68500740AB0 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD49202B15C68400740AB0 /* FeedImageDataLoaderWithFallbackComposite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		C4FD48FF2B15AFA100740AB0 /* EssentialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FD491C2B15BEDA00740AB0 /* FeedLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
 		C4FD491E2B15C48600740AB0 /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
+		C4FD49202B15C68400740AB0 /* FeedImageDataLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				C4FD491C2B15BEDA00740AB0 /* FeedLoaderWithFallbackCompositeTests.swift */,
+				C4FD49202B15C68400740AB0 /* FeedImageDataLoaderWithFallbackComposite.swift */,
 			);
 			path = EssentialAppTests;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FD49212B15C68500740AB0 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 				C4FD491D2B15BEDA00740AB0 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
