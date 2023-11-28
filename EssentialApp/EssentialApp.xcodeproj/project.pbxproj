@@ -104,8 +104,8 @@
 				C4FD48F52B15AFA100740AB0 /* Assets.xcassets */,
 				C4FD48F72B15AFA100740AB0 /* LaunchScreen.storyboard */,
 				C4FD491E2B15C48600740AB0 /* FeedLoaderWithFallbackComposite.swift */,
-				C4FD48FA2B15AFA100740AB0 /* Info.plist */,
 				C4FB0DA22B15CA45009F5DC4 /* FeedImageDataLoaderWithFallbackComposite.swift */,
+				C4FD48FA2B15AFA100740AB0 /* Info.plist */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
