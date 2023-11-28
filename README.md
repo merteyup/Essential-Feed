@@ -1,5 +1,4 @@
-[![Build Status](https://app.travis-ci.com/merteyup/Essential-Feed.svg?token=QfCCvpiBx2PSf4ikSaNc&branch=main)](https://app.travis-ci.com/merteyup/Essential-Feed)
-
+[![CI_iOS](https://github.com/merteyup/Essential-Feed/actions/workflows/CI_iOS.yml/badge.svg)](https://github.com/merteyup/Essential-Feed/actions/workflows/CI_iOS.yml)
 
 
 
