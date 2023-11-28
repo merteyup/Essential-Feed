@@ -103,6 +103,7 @@
 		C4F44DD32A824E1200D8ADA6 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F44DD22A824E1200D8ADA6 /* HTTPClient.swift */; };
 		C4F44DD52A824E5500D8ADA6 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F44DD42A824E5500D8ADA6 /* FeedItemsMapper.swift */; };
 		C4F44E112A84B5F700D8ADA6 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F44E102A84B5F700D8ADA6 /* URLSessionHTTPClientTests.swift */; };
+		C4FB0DA92B162FC9009F5DC4 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F44DAE2A7E5E7900D8ADA6 /* EssentialFeed.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,13 @@
 			remoteInfo = EssentialFeed;
 		};
 		C4F44DBA2A7E5E7900D8ADA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4F44DA52A7E5E7900D8ADA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4F44DAD2A7E5E7900D8ADA6;
+			remoteInfo = EssentialFeed;
+		};
+		C4FB0DAA2B162FC9009F5DC4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C4F44DA52A7E5E7900D8ADA6 /* Project object */;
 			proxyType = 1;
@@ -272,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4B8FD222ADBF6DC00651EAD /* EssentialFeed.framework in Frameworks */,
+				C4FB0DA92B162FC9009F5DC4 /* EssentialFeed.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +700,7 @@
 			);
 			dependencies = (
 				C4B8FD252ADBF6DC00651EAD /* PBXTargetDependency */,
+				C4FB0DAB2B162FC9009F5DC4 /* PBXTargetDependency */,
 			);
 			name = EssentialFeediOS;
 			productName = EssentialFeediOS;
@@ -1031,6 +1041,12 @@
 			isa = PBXTargetDependency;
 			target = C4F44DAD2A7E5E7900D8ADA6 /* EssentialFeed */;
 			targetProxy = C4F44DBA2A7E5E7900D8ADA6 /* PBXContainerItemProxy */;
+		};
+		C4FB0DAB2B162FC9009F5DC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = C4F44DAD2A7E5E7900D8ADA6 /* EssentialFeed */;
+			targetProxy = C4FB0DAA2B162FC9009F5DC4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
