@@ -1,8 +1,8 @@
 //
 //  XCTestCase+MemoryLeakTracking.swift
-//  EssentialApp
+//  EssentialAppTests
 //
-//  Created by Eyüp Mert on 26.11.2023.
+//  Created by Eyüp Mert on 28.11.2023.
 //
 
 import XCTest

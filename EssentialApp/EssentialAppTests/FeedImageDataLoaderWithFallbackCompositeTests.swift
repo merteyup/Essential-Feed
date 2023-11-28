@@ -1,8 +1,8 @@
 //
-//  FeedImageDataLoaderWithFallbackComposite.swift
+//  FeedImageDataLoaderWithFallbackCompositeTests.swift
 //  EssentialAppTests
 //
-//  Created by Eyüp Mert on 26.11.2023.
+//  Created by Eyüp Mert on 28.11.2023.
 //
 
 import XCTest
@@ -19,27 +19,25 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
     }
     
     func test_loadImageData_loadsFromPrimaryLoaderFirst() {
-        
         let url = anyURL()
         let (sut, primaryLoader, fallbackLoader) = makeSUT()
         
-        _ = sut.loadImageData(from: url) { _ in}
+        _ = sut.loadImageData(from: url) { _ in }
         
         XCTAssertEqual(primaryLoader.loadedURLs, [url], "Expected to load URL from primary loader")
         XCTAssertTrue(fallbackLoader.loadedURLs.isEmpty, "Expected no loaded URLs in the fallback loader")
     }
     
     func test_loadImageData_loadsFromFallbackOnPrimaryLoaderFailure() {
-        
         let url = anyURL()
         let (sut, primaryLoader, fallbackLoader) = makeSUT()
         
         _ = sut.loadImageData(from: url) { _ in }
         
         primaryLoader.complete(with: anyNSError())
+        
         XCTAssertEqual(primaryLoader.loadedURLs, [url], "Expected to load URL from primary loader")
         XCTAssertEqual(fallbackLoader.loadedURLs, [url], "Expected to load URL from fallback loader")
-        
     }
     
     func test_cancelLoadImageData_cancelsPrimaryLoaderTask() {
@@ -119,16 +117,19 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
             default:
                 XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
             }
+            
             exp.fulfill()
         }
+        
         action()
         
         wait(for: [exp], timeout: 1.0)
     }
-
+    
     private class LoaderSpy: FeedImageDataLoader {
         private var messages = [(url: URL, completion: (FeedImageDataLoader.Result) -> Void)]()
         private(set) var cancelledURLs = [URL]()
+        
         
         var loadedURLs: [URL] {
             return messages.map { $0.url }
