@@ -1,5 +1,5 @@
 //
-//  FeedImageDataLoaderWithFallbackComposite.swift
+//  FeedImageDataLoaderWithFallbackCompositeTests.swift
 //  EssentialAppTests
 //
 //  Created by Eyüp Mert on 28.11.2023.
