@@ -16,7 +16,7 @@ final class EssentialAppUIAcceptanceTests: XCTestCase {
         
         let feedCells = app.cells.matching(identifier: "feed-image-cell")
         XCTAssertEqual(feedCells.count, 2)
-        let firstImage = app.cells.matching(identifier: "feed-image-view")
+        _ = app.cells.matching(identifier: "feed-image-view")
      //   XCTAssertTrue(firstImage.element.exists)
     }
     
