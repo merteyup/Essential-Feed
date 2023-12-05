@@ -16,6 +16,8 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     
     private var onViewIsAppearing: ((FeedViewController) -> Void)?
     
+    private var loadingControllers = [IndexPath: FeedImageCellController]()
+    
     var delegate: FeedViewControllerDelegate?
     
     @IBOutlet private(set) public var errorView: ErrorView?
@@ -43,7 +45,10 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     @IBAction private func refresh() {
         delegate?.didRequestFeedRefresh()
     }
-    
+    public func display(_ cellControllers: [FeedImageCellController]) {
+        loadingControllers = [:]
+        tableModel = cellControllers
+    }
     public func display(_ viewModel: FeedLoadingViewModel) {
         refreshControl?.update(isRefreshing: viewModel.isLoading)
     }
