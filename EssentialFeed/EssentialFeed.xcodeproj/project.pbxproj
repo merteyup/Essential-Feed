@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C42724A32B1F521B003BF8A8 /* UIIMage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42724A22B1F521B003BF8A8 /* UIIMage+TestHelpers.swift */; };
+		C42724A52B1F5457003BF8A8 /* UITableView+HeaderSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42724A42B1F5457003BF8A8 /* UITableView+HeaderSizing.swift */; };
 		C42D04F12A86246400682B5B /* XCTTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D04F02A86246400682B5B /* XCTTestCase+MemoryLeakTracking.swift */; };
 		C42D04F32A865EDE00682B5B /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D04F22A865EDE00682B5B /* URLSessionHTTPClient.swift */; };
 		C42D04FB2A87977600682B5B /* EssentialFeedAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D04FA2A87977600682B5B /* EssentialFeedAPIEndToEndTests.swift */; };
@@ -160,6 +161,7 @@
 
 /* Begin PBXFileReference section */
 		C42724A22B1F521B003BF8A8 /* UIIMage+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIIMage+TestHelpers.swift"; sourceTree = "<group>"; };
+		C42724A42B1F5457003BF8A8 /* UITableView+HeaderSizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+HeaderSizing.swift"; sourceTree = "<group>"; };
 		C42D04F02A86246400682B5B /* XCTTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		C42D04F22A865EDE00682B5B /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		C42D04F82A87977600682B5B /* EssentialFeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -375,6 +377,7 @@
 				C4E1E5772AE2A56E006A7F01 /* UITableView+Dequeueing.swift */,
 				C4E1E5792AE2A682006A7F01 /* UIImageView+Animations.swift */,
 				C48241472AF01B630085B5C2 /* UIRefreshControl+Helpers.swift */,
+				C42724A42B1F5457003BF8A8 /* UITableView+HeaderSizing.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -863,6 +866,7 @@
 			files = (
 				C4C3B8A02AE81C6700218D20 /* MainQueueDispatchDecorator.swift in Sources */,
 				C4C3B8A22AE81D2C00218D20 /* WeakRefVirtualProxy.swift in Sources */,
+				C42724A52B1F5457003BF8A8 /* UITableView+HeaderSizing.swift in Sources */,
 				C4D2252B2ADEC71D0063BA9A /* FeedUIComposer.swift in Sources */,
 				C4B8FD292ADC021900651EAD /* FeedViewController.swift in Sources */,
 				C4E1E5782AE2A56E006A7F01 /* UITableView+Dequeueing.swift in Sources */,
