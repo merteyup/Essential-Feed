@@ -1,5 +1,7 @@
 [![CI_iOS](https://github.com/merteyup/Essential-Feed/actions/workflows/CI_iOS.yml/badge.svg)](https://github.com/merteyup/Essential-Feed/actions/workflows/CI_iOS.yml)
 
+[![CI_macOS](https://github.com/merteyup/Essential-Feed/actions/workflows/CI_macOS.yml/badge.svg)](https://github.com/merteyup/Essential-Feed/actions/workflows/CI_macOS.yml)
+
 
 
 # BDD Specs
