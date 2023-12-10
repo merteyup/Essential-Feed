@@ -2,6 +2,7 @@
 
 [![CI_macOS](https://github.com/merteyup/Essential-Feed/actions/workflows/CI_macOS.yml/badge.svg)](https://github.com/merteyup/Essential-Feed/actions/workflows/CI_macOS.yml)
 
+[![Deploy](https://github.com/merteyup/Essential-Feed/actions/workflows/Deploy.yml/badge.svg)](https://github.com/merteyup/Essential-Feed/actions/workflows/Deploy.yml)
 
 
 # BDD Specs
