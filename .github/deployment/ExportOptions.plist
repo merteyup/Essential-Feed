@@ -9,7 +9,7 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>eyupMert.EssentialApp</key>
-		<string>Eyup Mert Provision Profile</string>
+		<string>profile</string>
 	</dict>
 	<key>signingCertificate</key>
 	<string>iPhone Distribution</string>
