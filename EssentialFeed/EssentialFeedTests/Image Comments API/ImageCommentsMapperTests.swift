@@ -43,7 +43,7 @@ class ImageCommentsMapperTests: XCTestCase {
         }
     }
     
-    func test_map_throwsItemsOn2xxHTTPResponseWithJSONItems() throws {
+    func test_map_deliversItemsOn2xxHTTPResponseWithJSONItems() throws {
         let item1 = makeItem(
             id: UUID(),
             message: "a message",
@@ -59,10 +59,10 @@ class ImageCommentsMapperTests: XCTestCase {
         let json = makeItemsJSON([item1.json, item2.json])
         let samples = [200, 201, 250, 280, 299]
         
-        let items = [item1.model, item2.model]
-        
         try samples.forEach { code in
             let result = try ImageCommentsMapper.map(json, from: HTTPURLResponse(statusCode: code))
+            
+            XCTAssertEqual(result, [item1.model, item2.model])
         }
     }
     
