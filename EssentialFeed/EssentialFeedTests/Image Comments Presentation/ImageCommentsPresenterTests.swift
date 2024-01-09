@@ -26,5 +26,4 @@ class ImageCommentsPresenterTests: XCTestCase {
         return value
     }
 
-
 }
