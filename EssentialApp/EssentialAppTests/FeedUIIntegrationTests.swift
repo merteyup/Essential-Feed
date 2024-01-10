@@ -1,5 +1,5 @@
 //
-//  FeedViewControllerTests.swift
+//  ListViewController.swift
 //  EssentialFeediOSTests
 //
 //  Created by Eyüp Mert on 15.10.2023.
