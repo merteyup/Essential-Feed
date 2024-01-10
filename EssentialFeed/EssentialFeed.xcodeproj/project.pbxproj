@@ -467,6 +467,42 @@
 			path = "Image Comments API";
 			sourceTree = "<group>";
 		};
+		C4623C692B4F2E2E00FE4240 /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+				C4623C6A2B4F2E4100FE4240 /* Controllers */,
+				C4623C6B2B4F2E6900FE4240 /* Views */,
+			);
+			path = "Shared UI";
+			sourceTree = "<group>";
+		};
+		C4623C6A2B4F2E4100FE4240 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4B8FD282ADC021900651EAD /* ListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C4623C6B2B4F2E6900FE4240 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C48241422AF0003D0085B5C2 /* ErrorView.swift */,
+				C4623C6C2B4F2E8C00FE4240 /* Helpers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C4623C6C2B4F2E8C00FE4240 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C4E1E5772AE2A56E006A7F01 /* UITableView+Dequeueing.swift */,
+				C48241472AF01B630085B5C2 /* UIRefreshControl+Helpers.swift */,
+				C42724A42B1F5457003BF8A8 /* UITableView+HeaderSizing.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C47588322AA0CAA9009A9DCA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,10 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B8FD2C2ADD9F0300651EAD /* UIView+Shimmering.swift */,
-				C4E1E5772AE2A56E006A7F01 /* UITableView+Dequeueing.swift */,
 				C4E1E5792AE2A682006A7F01 /* UIImageView+Animations.swift */,
-				C48241472AF01B630085B5C2 /* UIRefreshControl+Helpers.swift */,
-				C42724A42B1F5457003BF8A8 /* UITableView+HeaderSizing.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -516,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B8FD082ADBB04B00651EAD /* EssentialFeediOS.docc */,
+				C4623C692B4F2E2E00FE4240 /* Shared UI */,
 				C4D225092ADEBA7F0063BA9A /* Feed UI */,
 			);
 			path = EssentialFeediOS;
@@ -579,7 +613,6 @@
 		C4D2250A2ADEBA880063BA9A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C4B8FD282ADC021900651EAD /* ListViewController.swift */,
 				C4D225272ADEC3A00063BA9A /* FeedImageCellController.swift */,
 			);
 			path = Controllers;
@@ -588,7 +621,6 @@
 		C4D2250B2ADEBA8D0063BA9A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C48241422AF0003D0085B5C2 /* ErrorView.swift */,
 				C4B8FD2A2ADD82E600651EAD /* FeedImageCell.swift */,
 				C4E1E5732AE27D34006A7F01 /* Feed.storyboard */,
 				C4E1E5752AE27DD4006A7F01 /* Feed.xcassets */,
