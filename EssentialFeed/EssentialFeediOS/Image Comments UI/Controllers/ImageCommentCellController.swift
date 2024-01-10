@@ -1,5 +1,5 @@
 //
-//  ImageCommentsCellController.swift
+//  ImageCommentCellController.swift
 //  EssentialFeediOS
 //
 //  Created by Eyüp Mert on 11.01.2024.
@@ -8,7 +8,7 @@
 import UIKit
 import EssentialFeed
 
-public class ImageCommentsCellController: CellController {
+public class ImageCommentCellController: CellController {
     private let model: ImageCommentViewModel
     
     public init(model: ImageCommentViewModel) {
@@ -16,7 +16,12 @@ public class ImageCommentsCellController: CellController {
     }
     
     public func view(in tableView: UITableView) -> UITableViewCell {
-        UITableViewCell()
+        let cell: ImageCommentCell = tableView.dequeueReusableCell()
+        cell.messageLabel.text = model.message
+        cell.usernameLabel.text = model.username
+        cell.dateLabel.text = model.date
+
+        return cell
     }
     
     public func preload() {

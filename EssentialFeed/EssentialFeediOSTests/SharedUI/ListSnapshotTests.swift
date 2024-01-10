@@ -6,8 +6,8 @@
 //
 
 import XCTest
-@testable import EssentialFeed
 import EssentialFeediOS
+@testable import EssentialFeed
 
 class ListSnapshotTests: XCTestCase {
     
