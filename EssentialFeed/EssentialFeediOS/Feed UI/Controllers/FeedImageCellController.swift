@@ -13,7 +13,7 @@ public protocol FeedImageCellControllerDelegate {
     func didCancelImageRequest()
 }
 
-public final class FeedImageCellController: NSObject, CellController {
+public final class FeedImageCellController: NSObject {
     
     public typealias ResourceViewModel = UIImage
     
@@ -27,7 +27,7 @@ public final class FeedImageCellController: NSObject, CellController {
     }
 }
 
-extension FeedImageCellController {
+extension FeedImageCellController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
