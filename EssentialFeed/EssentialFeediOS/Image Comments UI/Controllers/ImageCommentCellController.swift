@@ -8,14 +8,19 @@
 import UIKit
 import EssentialFeed
 
-public class ImageCommentCellController: CellController {
+public class ImageCommentCellController: NSObject, CellController {
+    
     private let model: ImageCommentViewModel
     
     public init(model: ImageCommentViewModel) {
         self.model = model
     }
+ 
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
     
-    public func view(in tableView: UITableView) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ImageCommentCell = tableView.dequeueReusableCell()
         cell.messageLabel.text = model.message
         cell.usernameLabel.text = model.username
@@ -24,13 +29,6 @@ public class ImageCommentCellController: CellController {
         return cell
     }
     
-    public func preload() {
-        
-    }
-    
-    public func cancelLoad() {
-        
-    }
-    
+    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {}
     
 }
