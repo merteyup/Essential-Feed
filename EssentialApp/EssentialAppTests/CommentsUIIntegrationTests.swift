@@ -12,7 +12,7 @@ import EssentialApp
 import EssentialFeed
 import EssentialFeediOS
 
-class CommentsUIIntegrationTests: FeedUIIntegrationTests {
+class CommentsUIIntegrationTests: XCTestCase {
     
     func test_commentsView_hasTitle() {
         let (sut, _) = makeSUT()
@@ -112,7 +112,7 @@ class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         wait(for: [exp], timeout: 1.0)
     }
     
-    override func test_loadFeedCompletion_rendersErrorMessageOnErrorUntilNextReload() {
+    func test_loadCommentsCompletion_rendersErrorMessageOnErrorUntilNextReload() {
         let (sut, loader) = makeSUT()
         
         sut.simulateAppearance()
@@ -125,16 +125,7 @@ class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         XCTAssertEqual(sut.errorMessage, nil)
     }
     
-    
-    override func test_errorView_doesNotRenderErrorOnLoad() {
-        let (sut, _) = makeSUT()
-        
-        sut.simulateAppearance()
-        
-        XCTAssertEqual(sut.errorMessage, nil)
-    }
-    
-    override func test_tapOnErrorView_hidesErrorMessage() {
+    func test_tapOnErrorView_hidesErrorMessage() {
         let (sut, loader) = makeSUT()
         
         sut.simulateAppearance()
@@ -147,9 +138,6 @@ class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         XCTAssertEqual(sut.errorMessage, nil)
     }
     
-  
-    
-    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: ListViewController, loader: LoaderSpy) {
@@ -159,7 +147,6 @@ class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
-        
     }
     
     private func makeComment(message: String = "any message",
