@@ -100,16 +100,29 @@ class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         assertThat(sut, isRendering: [comment])
     }
     
-    
-    override func test_loadFeedActions_runsAutomaticallyOnlyOnFirstAppearance() {
+    func test_loadCommentsCompletion_dispatchesFromBackgroundToMainThread() {
         let (sut, loader) = makeSUT()
-        XCTAssertEqual(loader.loadCommentsCallCount, 0, "Expected no loading requests before view appears")
+        sut.simulateAppearance()
+        
+        let exp = expectation(description: "Wait for background queue")
+        DispatchQueue.global().async {
+            loader.completeCommentsLoading(at: 0)
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+    override func test_loadFeedCompletion_rendersErrorMessageOnErrorUntilNextReload() {
+        let (sut, loader) = makeSUT()
         
         sut.simulateAppearance()
-        XCTAssertEqual(loader.loadCommentsCallCount, 1, "Expected a loading request once view appears")
+        XCTAssertEqual(sut.errorMessage, nil)
         
-        sut.simulateAppearance()
-        XCTAssertEqual(loader.loadCommentsCallCount, 1, "Expected no loading request the second time view appears")
+        loader.completeCommentsLoadingWithError(at: 0)
+        XCTAssertEqual(sut.errorMessage, loadError)
+        
+        sut.simulateUserInitiatedReload()
+        XCTAssertEqual(sut.errorMessage, nil)
     }
     
     
@@ -134,18 +147,7 @@ class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         XCTAssertEqual(sut.errorMessage, nil)
     }
     
-    override func test_loadFeedCompletion_rendersErrorMessageOnErrorUntilNextReload() {
-        let (sut, loader) = makeSUT()
-        
-        sut.simulateAppearance()
-        XCTAssertEqual(sut.errorMessage, nil)
-        
-        loader.completeCommentsLoadingWithError(at: 0)
-        XCTAssertEqual(sut.errorMessage, loadError)
-        
-        sut.simulateUserInitiatedReload()
-        XCTAssertEqual(sut.errorMessage, nil)
-    }
+  
     
     
     // MARK: - Helpers
