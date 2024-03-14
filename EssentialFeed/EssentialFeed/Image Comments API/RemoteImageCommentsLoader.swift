@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Foundation
 
 public final class RemoteImageCommentsLoader {
     private let url: URL
