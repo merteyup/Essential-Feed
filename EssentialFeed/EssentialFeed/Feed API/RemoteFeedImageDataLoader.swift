@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+#warning("At bonus lesson 001 Image Comments API 01:57:55 they said that this is left as an exercise for us.")
 public final class RemoteFeedImageDataLoader: FeedImageDataLoader {
     private let client: HTTPClient
 
