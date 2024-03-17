@@ -16,6 +16,15 @@ class FeedPresenterTests: XCTestCase {
         
     }
     
+    func test_map_createsViewModel() {
+        let feed = uniqueImageFeed().models
+        
+        let viewModel = FeedPresenter.map(feed)
+        
+        XCTAssertEqual(viewModel.feed, feed)
+        
+    }
+    
     func test_init_doesNotSendMessagesToView() {
         
         let (_, view) = makeSUT()
