@@ -31,7 +31,7 @@ public final class FeedUIComposer {
                 imageLoader: imageLoader),
             loadingView: WeakRefVirtualProxy(feedController),
             errorView: WeakRefVirtualProxy(feedController),
-            mapper: FeedViewModel.init)
+            mapper: FeedPresenter.map)
         
         return feedController
     }
