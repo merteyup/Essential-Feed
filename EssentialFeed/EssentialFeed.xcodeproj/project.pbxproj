@@ -70,6 +70,10 @@
 		C49E49E22BACB9590043CBD8 /* ImageComments.strings in Resources */ = {isa = PBXBuildFile; fileRef = C49E49E42BACB9590043CBD8 /* ImageComments.strings */; };
 		C49E49EF2BAF51BC0043CBD8 /* ListSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49E49EE2BAF51BC0043CBD8 /* ListSnapshotTests.swift */; };
 		C49E49F22BAF60A00043CBD8 /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49E49F12BAF60A00043CBD8 /* XCTestCase+Snapshot.swift */; };
+		C49E49F52BAF63570043CBD8 /* ImageCommentsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49E49F42BAF63570043CBD8 /* ImageCommentsSnapshotTests.swift */; };
+		C49E49FA2BAF654E0043CBD8 /* ImageCommentCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49E49F92BAF654E0043CBD8 /* ImageCommentCellController.swift */; };
+		C49E49FD2BAF662E0043CBD8 /* ImageComments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C49E49FC2BAF662E0043CBD8 /* ImageComments.storyboard */; };
+		C49E4A032BAF68E50043CBD8 /* ImageCommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49E4A022BAF68E50043CBD8 /* ImageCommentsCell.swift */; };
 		C4B8FD092ADBB04B00651EAD /* EssentialFeediOS.docc in Sources */ = {isa = PBXBuildFile; fileRef = C4B8FD082ADBB04B00651EAD /* EssentialFeediOS.docc */; };
 		C4B8FD0F2ADBB04B00651EAD /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B8FD052ADBB04B00651EAD /* EssentialFeediOS.framework */; };
 		C4B8FD222ADBF6DC00651EAD /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4F44DAE2A7E5E7900D8ADA6 /* EssentialFeed.framework */; platformFilter = ios; };
@@ -228,6 +232,10 @@
 		C49E49E72BACB95B0043CBD8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/ImageComments.strings; sourceTree = "<group>"; };
 		C49E49EE2BAF51BC0043CBD8 /* ListSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSnapshotTests.swift; sourceTree = "<group>"; };
 		C49E49F12BAF60A00043CBD8 /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
+		C49E49F42BAF63570043CBD8 /* ImageCommentsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentsSnapshotTests.swift; sourceTree = "<group>"; };
+		C49E49F92BAF654E0043CBD8 /* ImageCommentCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentCellController.swift; sourceTree = "<group>"; };
+		C49E49FC2BAF662E0043CBD8 /* ImageComments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageComments.storyboard; sourceTree = "<group>"; };
+		C49E4A022BAF68E50043CBD8 /* ImageCommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentsCell.swift; sourceTree = "<group>"; };
 		C4B8FD052ADBB04B00651EAD /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4B8FD082ADBB04B00651EAD /* EssentialFeediOS.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = EssentialFeediOS.docc; sourceTree = "<group>"; };
 		C4B8FD0E2ADBB04B00651EAD /* EssentialFeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -550,9 +558,44 @@
 			path = snapshots;
 			sourceTree = "<group>";
 		};
+		C49E49F32BAF631A0043CBD8 /* Image Comments UI */ = {
+			isa = PBXGroup;
+			children = (
+				C49E49F42BAF63570043CBD8 /* ImageCommentsSnapshotTests.swift */,
+			);
+			path = "Image Comments UI";
+			sourceTree = "<group>";
+		};
+		C49E49F62BAF650C0043CBD8 /* Image Comments UI */ = {
+			isa = PBXGroup;
+			children = (
+				C49E49FB2BAF66160043CBD8 /* Views */,
+				C49E49F82BAF65300043CBD8 /* Controllers */,
+			);
+			path = "Image Comments UI";
+			sourceTree = "<group>";
+		};
+		C49E49F82BAF65300043CBD8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C49E49F92BAF654E0043CBD8 /* ImageCommentCellController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C49E49FB2BAF66160043CBD8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C49E49FC2BAF662E0043CBD8 /* ImageComments.storyboard */,
+				C49E4A022BAF68E50043CBD8 /* ImageCommentsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C4B8FD062ADBB04B00651EAD /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
+				C49E49F62BAF650C0043CBD8 /* Image Comments UI */,
 				C4B8FD082ADBB04B00651EAD /* EssentialFeediOS.docc */,
 				C49E49E82BAF4FF30043CBD8 /* Shared UI */,
 				C4D225092ADEBA7F0063BA9A /* Feed UI */,
@@ -565,6 +608,7 @@
 			children = (
 				C45B6EDD2B1F44EE00973F46 /* Helpers */,
 				C49E49EC2BAF50F90043CBD8 /* Shared UI */,
+				C49E49F32BAF631A0043CBD8 /* Image Comments UI */,
 				C45B6EDB2B1F100B00973F46 /* FeedSnapshotTests.swift */,
 			);
 			path = EssentialFeediOSTests;
@@ -952,6 +996,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4E1E5742AE27D34006A7F01 /* Feed.storyboard in Resources */,
+				C49E49FD2BAF662E0043CBD8 /* ImageComments.storyboard in Resources */,
 				C4E1E5762AE27DD4006A7F01 /* Feed.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1007,6 +1052,8 @@
 				C42724A52B1F5457003BF8A8 /* UITableView+HeaderSizing.swift in Sources */,
 				C4B8FD292ADC021900651EAD /* ListViewController.swift in Sources */,
 				C4E1E5782AE2A56E006A7F01 /* UITableView+Dequeueing.swift in Sources */,
+				C49E4A032BAF68E50043CBD8 /* ImageCommentsCell.swift in Sources */,
+				C49E49FA2BAF654E0043CBD8 /* ImageCommentCellController.swift in Sources */,
 				C4E1E57A2AE2A682006A7F01 /* UIImageView+Animations.swift in Sources */,
 				C4D225282ADEC3A00063BA9A /* FeedImageCellController.swift in Sources */,
 				C48241482AF01B630085B5C2 /* UIRefreshControl+Helpers.swift in Sources */,
@@ -1025,6 +1072,7 @@
 				C49E49EF2BAF51BC0043CBD8 /* ListSnapshotTests.swift in Sources */,
 				C49E49F22BAF60A00043CBD8 /* XCTestCase+Snapshot.swift in Sources */,
 				C4B8FD272ADBF7F700651EAD /* XCTTestCase+MemoryLeakTracking.swift in Sources */,
+				C49E49F52BAF63570043CBD8 /* ImageCommentsSnapshotTests.swift in Sources */,
 				C45B6EDC2B1F100B00973F46 /* FeedSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
