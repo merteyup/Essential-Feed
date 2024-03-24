@@ -12,7 +12,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     private(set) public var errorView = ErrorView()
     
     private var onViewIsAppearing: ((ListViewController) -> Void)?
-    
+
     private lazy var dataSource: UITableViewDiffableDataSource<Int, CellController> = {
         .init(tableView: tableView) { (tableView, index, controller) in
             controller.dataSource.tableView(tableView, cellForRowAt: index)
@@ -26,8 +26,10 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         
         onViewIsAppearing = { vc in
             vc.onViewIsAppearing = nil
+            self.dataSource.defaultRowAnimation = .fade
             self.tableView.dataSource = self.dataSource
             self.configureErrorView()
+            self.configureTraitCollectionObservers()
             vc.refresh()
         }
     }
@@ -66,11 +68,13 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         tableView.sizeTableHeaderToFit()
     }
     
-    public override func traitCollectionDidChange(_ previous: UITraitCollection?) {
-        if previous?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
-            tableView.reloadData()
+    private func configureTraitCollectionObservers() {
+            registerForTraitChanges(
+                [UITraitPreferredContentSizeCategory.self]
+            ) { (self: Self, previous: UITraitCollection) in
+                self.tableView.reloadData()
+            }
         }
-    }
     
     @IBAction private func refresh() {
         onRefresh?()

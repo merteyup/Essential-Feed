@@ -115,7 +115,7 @@ private final class SnapshotWindow: UIWindow {
     }
     
     override var traitCollection: UITraitCollection {
-        return UITraitCollection(traitsFrom: [super.traitCollection, configuration.traitCollection])
+        configuration.traitCollection
     }
     
     
