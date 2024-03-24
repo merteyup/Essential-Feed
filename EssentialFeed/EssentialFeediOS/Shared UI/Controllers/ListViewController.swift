@@ -1,5 +1,5 @@
 //
-//  FeedViewController.swift
+//  ListViewController.swift
 //  EssentialFeediOS
 //
 //  Created by Eyüp Mert on 15.10.2023.
@@ -23,11 +23,12 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.dataSource = self.dataSource
+
         
         onViewIsAppearing = { vc in
             vc.onViewIsAppearing = nil
             self.dataSource.defaultRowAnimation = .fade
-            self.tableView.dataSource = self.dataSource
             self.configureErrorView()
             self.configureTraitCollectionObservers()
             vc.refresh()
@@ -84,7 +85,6 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         var snapshot = NSDiffableDataSourceSnapshot<Int, CellController>()
         snapshot.appendSections([0])
         snapshot.appendItems(cellControllers, toSection: 0)
-        dataSource.apply(snapshot)
         
         if #available(iOS 15.0, *) {
             dataSource.applySnapshotUsingReloadData(snapshot)
