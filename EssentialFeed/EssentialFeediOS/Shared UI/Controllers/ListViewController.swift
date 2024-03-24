@@ -10,7 +10,7 @@ import EssentialFeed
 
 public final class ListViewController: UITableViewController, UITableViewDataSourcePrefetching, ResourceLoadingView, ResourceErrorView {
     private(set) public var errorView = ErrorView()
-    
+
     private var loadingControllers = [IndexPath: CellController]()
     
     private var onViewIsAppearing: ((ListViewController) -> Void)?
@@ -30,6 +30,28 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
             vc.refresh()
         }
     }
+    
+    private func configureErrorView() {
+           let container = UIView()
+           container.backgroundColor = .clear
+           container.addSubview(errorView)
+
+           errorView.translatesAutoresizingMaskIntoConstraints = false
+           NSLayoutConstraint.activate([
+               errorView.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+               container.trailingAnchor.constraint(equalTo: errorView.trailingAnchor),
+               errorView.topAnchor.constraint(equalTo: container.topAnchor),
+               container.bottomAnchor.constraint(equalTo: errorView.bottomAnchor),
+           ])
+
+           tableView.tableHeaderView = container
+
+           errorView.onHide = { [weak self] in
+               self?.tableView.beginUpdates()
+               self?.tableView.sizeTableHeaderToFit()
+               self?.tableView.endUpdates()
+           }
+       }
     
     public override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
