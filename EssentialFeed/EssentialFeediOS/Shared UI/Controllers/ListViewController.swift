@@ -12,7 +12,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     private(set) public var errorView = ErrorView()
     
     private var onViewIsAppearing: ((ListViewController) -> Void)?
-
+    
     private lazy var dataSource: UITableViewDiffableDataSource<Int, CellController> = {
         .init(tableView: tableView) { (tableView, index, controller) in
             controller.dataSource.tableView(tableView, cellForRowAt: index)
@@ -69,12 +69,12 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     }
     
     private func configureTraitCollectionObservers() {
-            registerForTraitChanges(
-                [UITraitPreferredContentSizeCategory.self]
-            ) { (self: Self, previous: UITraitCollection) in
-                self.tableView.reloadData()
-            }
+        registerForTraitChanges(
+            [UITraitPreferredContentSizeCategory.self]
+        ) { (self: Self, previous: UITraitCollection) in
+            self.tableView.reloadData()
         }
+    }
     
     @IBAction private func refresh() {
         onRefresh?()
@@ -85,6 +85,12 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         snapshot.appendSections([0])
         snapshot.appendItems(cellControllers, toSection: 0)
         dataSource.apply(snapshot)
+        
+        if #available(iOS 15.0, *) {
+            dataSource.applySnapshotUsingReloadData(snapshot)
+        } else {
+            dataSource.apply(snapshot)
+        }
     }
     
     public func display(_ viewModel: ResourceLoadingViewModel) {
