@@ -54,10 +54,6 @@ extension ListViewController {
         
     }
     
-    func simulateUserInitiatedFeedReload() {
-        refreshControl?.simulatePullToRefresh()
-    }
-    
     func simulateUserInitiatedReload() {
         refreshControl?.simulatePullToRefresh()
     }
