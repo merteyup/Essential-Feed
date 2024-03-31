@@ -61,7 +61,7 @@ class CommentsUIIntegrationTests: XCTestCase {
         let (sut, loader) = makeSUT()
         
         sut.simulateAppearance()
-        XCTAssertEqual(sut.numberOfRenderedFeedImageViews(), 0)
+        XCTAssertEqual(sut.numberOfRenderedComments(), 0)
         assertThat(sut, isRendering: [ImageComment]())
         
         loader.completeCommentsLoading(with: [comment0], at: 0)
@@ -125,6 +125,31 @@ class CommentsUIIntegrationTests: XCTestCase {
         sut.simulateErrorViewTap()
         XCTAssertEqual(sut.errorMessage, nil)
     }
+    
+    func test_deinit_cancelsRunningRequest() {
+        var cancelCallCount = 0
+        
+        var sut: ListViewController?
+        
+        autoreleasepool {
+            sut = CommentsUIComposer.commentsComposedWith(commentsLoader:  {
+                PassthroughSubject<[ImageComment], Error>()
+                    .handleEvents(receiveCancel: {
+                        cancelCallCount += 1
+                    }).eraseToAnyPublisher()
+            })
+            sut?.simulateAppearance()
+        }
+        
+        weak var weakSUT = sut
+        
+        XCTAssertEqual(cancelCallCount, 0)
+        
+        sut = nil
+        
+        XCTAssertNil(weakSUT)
+        XCTAssertEqual(cancelCallCount, 1)
+    }
 
     // MARK: - Helpers
     
@@ -156,9 +181,7 @@ class CommentsUIIntegrationTests: XCTestCase {
     
     
     private class LoaderSpy {
-        
-        // MARK: - FeedLoader
-        
+                
         private var requests = [PassthroughSubject<[ImageComment], Error>]()
         
         var loadCommentsCallCount: Int {
