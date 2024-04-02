@@ -82,6 +82,11 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         errorView.message = viewModel.message
     }
     
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dl = cellController(forRowAt: indexPath).delegate
+        dl?.tableView?(tableView, didSelectRowAt: indexPath)
+    }
+    
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableModel.count
     }
