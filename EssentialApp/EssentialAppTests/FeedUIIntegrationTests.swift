@@ -54,15 +54,18 @@ class FeedUIIntegrationTests: XCTestCase {
     }
     
     func test_loadMoreActions_requestMoreFromLoader() {
-           let (sut, loader) = makeSUT()
-           sut.loadViewIfNeeded()
-           loader.completeFeedLoading()
-
-           XCTAssertEqual(loader.loadMoreCallCount, 0, "Expected no requests before until load more action")
-
-           sut.simulateLoadMoreFeedAction()
-           XCTAssertEqual(loader.loadMoreCallCount, 1, "Expected load more request")
-       }
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading()
+        
+        XCTAssertEqual(loader.loadMoreCallCount, 0, "Expected no requests before until load more action")
+        
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertEqual(loader.loadMoreCallCount, 1, "Expected load more request")
+        
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertEqual(loader.loadMoreCallCount, 1, "Expected no request while loading more")
+    }
     
     func test_loadFeedActions_runsAutomaticallyOnlyOnFirstAppearance() {
         let (sut, loader) = makeSUT()
@@ -158,7 +161,7 @@ class FeedUIIntegrationTests: XCTestCase {
         
         loader.completeFeedLoadingWithError(at: 0)
         XCTAssertEqual(sut.errorMessage, loadError)
-
+        
         sut.simulateUserInitiatedReload()
         XCTAssertEqual(sut.errorMessage, nil)
     }
@@ -387,12 +390,12 @@ class FeedUIIntegrationTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT(
-selection: @escaping (FeedImage) -> Void = { _ in },
+        selection: @escaping (FeedImage) -> Void = { _ in },
         file: StaticString = #file,
         line: UInt = #line
     ) -> (sut: ListViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = FeedUIComposer.feedComposedWith(feedLoader: loader.loadPublisher, 
+        let sut = FeedUIComposer.feedComposedWith(feedLoader: loader.loadPublisher,
                                                   imageLoader: loader.loadImageDataPublisher,
                                                   selection: selection)
         trackForMemoryLeaks(loader, file: file, line: line)
