@@ -165,11 +165,11 @@ extension ListViewController {
     }
     
     var isShowingLoadMoreFeedIndicator: Bool {
-        return loadMoreFeedCell()?.isLoading == true
+        loadMoreFeedCell()?.isLoading == true
     }
     
     var loadMoreFeedErrorMessage: String? {
-        return loadMoreFeedCell()?.message
+        loadMoreFeedCell()?.message
     }
     
     var canLoadMoreFeed: Bool {
@@ -181,7 +181,7 @@ extension ListViewController {
     }
     
     func renderedFeedImageData(at index: Int) -> Data? {
-        return simulateFeedImageViewVisible(at: index)?.renderedImage
+        simulateFeedImageViewVisible(at: index)?.renderedImage
     }
     
     func numberOfRenderedFeedImageViews() -> Int {
@@ -193,9 +193,7 @@ extension ListViewController {
         
     }
     
-    private var feedImagesSection: Int {
-        return 0
-    }
+    private var feedImagesSection: Int { 0 }
     
     private var feedLoadMoreSection: Int { 1 }
 }
