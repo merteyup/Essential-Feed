@@ -22,7 +22,7 @@ class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
         let url = anyURL()
         
         _ = try? sut.loadImageData(from: url)
-
+        
         XCTAssertEqual(store.receivedMessages, [.retrieve(dataFor: url)])
     }
     
@@ -51,17 +51,15 @@ class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
             store.completeRetrieval(with: foundData)
         })
     }
-
+            
     // MARK: - Helpers
     
-    private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #file, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: FeedImageDataStoreSpy) {
-
+    private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath, line: UInt = #line) -> (sut: LocalFeedImageDataLoader, store: FeedImageDataStoreSpy) {
         let store = FeedImageDataStoreSpy()
         let sut = LocalFeedImageDataLoader(store: store)
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, store)
-        
     }
     
     private func failed() -> Result<Data, Error> {
@@ -72,15 +70,11 @@ class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
         return .failure(LocalFeedImageDataLoader.LoadError.notFound)
     }
     
-    private func never(file: StaticString = #file, line: UInt = #line) {
-        XCTFail("Expected no no invocations", file: file, line: line)
-    }
-    
     private func expect(_ sut: LocalFeedImageDataLoader, toCompleteWith expectedResult: Result<Data, Error>, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
-        let exp = expectation(description: "Wait for load completion")
         action()
-        let receivedResult = Result { try sut.loadImageData(from: anyURL()) }
         
+        let receivedResult = Result { try sut.loadImageData(from: anyURL()) }
+
         switch (receivedResult, expectedResult) {
         case let (.success(receivedData), .success(expectedData)):
             XCTAssertEqual(receivedData, expectedData, file: file, line: line)
@@ -91,7 +85,7 @@ class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
             
         default:
             XCTFail("Expected result \(expectedResult), got \(receivedResult) instead", file: file, line: line)
-            
         }
     }
+    
 }
